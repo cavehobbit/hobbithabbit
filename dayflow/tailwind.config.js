@@ -12,6 +12,9 @@ export default {
           600: '#4F46E5',
         },
       },
+      borderRadius: {
+        'none': '0px',
+      },
     },
   },
   plugins: [],
