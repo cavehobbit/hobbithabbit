@@ -1,4 +1,4 @@
-@import url('https;//fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee:wght@400&display=swap');
 
 * {
@@ -12,7 +12,7 @@ body {
   background: #c19a6b;
   color: #ffffff;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -23,7 +23,7 @@ body::before {
   transform: rotate(-50deg);
   font-family: 'Bungee', sans-serif;
   font-size: 24px;
-  font-weight: 400px;
+  font-weight: 400;
   color: rgba(25, 15, 5, 0.8);
   white-space: nowrap;
   z-index: 0;
@@ -49,12 +49,10 @@ body::after {
 
 ::-webkit-scrollbar {
   width: 6px;
-
 }
 
 ::-webkit-scrollbar-track {
   background: #051409;
-
 }
 
 ::-webkit-scrollbar-thumb {
@@ -74,14 +72,14 @@ body::after {
     transform: translateY(100vh) translateX(100px) rotate(360deg);
     opacity: 0;
   }
-
 }
+
 .leaf-confetti {
   position: fixed;
   pointer-events: none;
   animation: leaf-fall 3s ease-in forwards;
   font-size: 32px;
-  z-index: 1;
+  z-index: 40;
 }
 
 .container {
@@ -101,7 +99,6 @@ body::after {
   border: 4px solid #c19a6b;
   padding: 32px 24px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-
 }
 
 .header h1 {
@@ -111,7 +108,9 @@ body::after {
   letter-spacing: 2px;
 }
 
-.progress-selection {
+/*top prog bar*/
+
+.progress-section {
   background: #0a2818;
   border: 4px solid #c19a6b;
   padding: 24px;
@@ -130,7 +129,6 @@ body::after {
   font-size: 18px;
   font-weight: 700;
   color: #c19a6b;
-
 }
 
 .progress-date {
@@ -139,20 +137,21 @@ body::after {
   margin-top: 4px;
   font-weight: 600;
 }
+
 .progress-stats {
   text-align: right;
-
 }
+
 .progress-percent {
   font-size: 36px;
   font-weight: 700;
   color: #c19a6b;
 }
+
 .progress-count {
   font-size: 12px;
   color: #8b7355;
   font-weight: 600;
-
 }
 
 .progress-bar {
@@ -161,6 +160,7 @@ body::after {
   height: 24px;
   border: 3px solid #c19a6b;
 }
+
 .progress-fill {
   background: #c19a6b;
   height: 100%;
@@ -168,10 +168,12 @@ body::after {
 }
 
 .board {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   margin-bottom: 32px;
 }
+
 .column {
   background: #0a2818;
   border: 4px solid #c19a6b;
@@ -181,6 +183,7 @@ body::after {
   min-height: 600px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
 .column-header {
   display: flex;
   align-items: center;
@@ -189,6 +192,7 @@ body::after {
   padding-bottom: 16px;
   border-bottom: 4px solid #c19a6b;
 }
+
 .column-title {
   display: flex;
   align-items: center;
@@ -198,6 +202,7 @@ body::after {
 .column-title span {
   font-size: 24px;
 }
+
 .column-title h3 {
   font-weight: 700;
   color: #c19a6b;
@@ -210,10 +215,9 @@ body::after {
   background: #c19a6b;
   color: #051409;
   font-size: 12px;
-  padding: 4px 12px;
   font-weight: 700;
+  padding: 4px 12px;
   border: 2px solid #c19a6b;
-
 }
 
 .tasks-list {
@@ -221,7 +225,7 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow-y :auto;
+  overflow-y: auto;
 }
 
 .task-card {
@@ -236,15 +240,18 @@ body::after {
   box-shadow: 0 8px 12px rgba(193, 154, 107, 0.2);
   transform: translateY(-2px);
 }
+
 .task-card.dragging {
   opacity: 0.5;
 }
+
 .task-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
 }
+
 .priority-badge {
   display: inline-flex;
   align-items: center;
@@ -260,29 +267,33 @@ body::after {
   color: #fee2e2;
   border-color: #b91c1c;
 }
+
 .priority-medium {
   background: #78350f;
   color: #fef3c7;
   border-color: #b45309;
 }
+
 .priority-low {
   background: #166534;
   color: #dcfce7;
   border-color: #15803d;
 }
+
 .priority-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-
 }
 
 .priority-high .priority-dot {
   background: #f87171;
 }
+
 .priority-medium .priority-dot {
   background: #facc15;
 }
+
 .priority-low .priority-dot {
   background: #4ade80;
 }
@@ -304,12 +315,12 @@ body::after {
   width: 16px;
   height: 16px;
   color: #c19a6b;
-  stroke: currentColor
+  stroke: currentColor;
 }
 
 .task-title {
-  font-size: 14px;
   font-weight: 600;
+  font-size: 14px;
   line-height: 1.4;
   color: #e8e8e8;
 }
@@ -333,22 +344,23 @@ body::after {
   padding: 12px 16px;
   border: 4px solid #c19a6b;
   background: #051409;
+  color: #c19a6b;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
   font-size: 14px;
 }
+
 .add-task-btn button:hover {
   background: #0a2818;
   box-shadow: 0 4px 6px rgba(193, 154, 107, 0.2);
-
 }
+
 .add-task-content {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
 }
 
 .modal {
@@ -359,19 +371,17 @@ body::after {
   z-index: 50;
   align-items: center;
   justify-content: center;
-
 }
 
-.modal-open {
+.modal.open {
   display: flex;
 }
 
-.model-content {
+.modal-content {
   background: #0a2818;
   border: 4px solid #c19a6b;
   width: 384px;
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
-
 }
 
 .modal-header {
@@ -387,7 +397,6 @@ body::after {
   font-size: 18px;
   font-weight: 700;
   color: #c19a6b;
-  
 }
 
 .modal-close {
@@ -399,11 +408,10 @@ body::after {
   cursor: pointer;
   padding: 4px;
   transition: background 0.2s;
-
 }
 
 .modal-close:hover {
-  background: #501409;
+  background: #051409;
 }
 
 .modal-body {
@@ -438,7 +446,6 @@ body::after {
 .form-input:focus {
   outline: none;
   border-color: #deb887;
-
 }
 
 .form-input::placeholder {
@@ -464,7 +471,6 @@ body::after {
 .priority-btn.selected {
   border-color: #e8e8e8;
   box-shadow: 0 4px 6px rgba(193, 154, 107, 0.3);
-
 }
 
 .priority-btn-low {
@@ -477,22 +483,23 @@ body::after {
 }
 
 .priority-btn-medium {
-  border-color: #b91c1c;
-  color: #fee2e2;
+  border-color: #b45309;
+  color: #fef3c7;
 }
 
 .priority-btn-medium.selected {
   background: #78350f;
 }
 
-
 .priority-btn-high {
   border-color: #b91c1c;
   color: #fee2e2;
 }
+
 .priority-btn-high.selected {
   background: #7f1d1d;
 }
+
 .modal-buttons {
   display: flex;
   gap: 12px;
@@ -508,9 +515,9 @@ body::after {
   transition: all 0.2s;
   font-size: 14px;
   font-family: 'Fredoka', sans-serif;
-
 }
-.model-btn-cancel {
+
+.modal-btn-cancel {
   background: #0a2818;
   border-color: #c19a6b;
   color: #c19a6b;
@@ -519,16 +526,16 @@ body::after {
 
 .modal-btn-cancel:hover {
   background: #051409;
-  box-shadow: 0 4px 6px rgba(193, 154, 107, 0.2)
-
+  box-shadow: 0 4px 6px rgba(193, 154, 107, 0.2);
 }
 
 .modal-btn-submit {
   flex: 1;
-  background: #0a2919;
+  background: #0a2818;
   border-color: #c19a6b;
   color: #c19a6b;
   font-weight: 700;
+
 
 }
 

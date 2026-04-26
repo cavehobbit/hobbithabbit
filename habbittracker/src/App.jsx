@@ -9,8 +9,8 @@ const SAMPLE_TASKS = [
   { id: '5', title: 'Update portfolio', priority: 'low', status: 'completed' },
 ];
 
+//prios
 const PriorityBadge = ({ priority }) => {
-
   return (
     <span className={`priority-badge priority-${priority}`}>
       <span className="priority-dot"></span>
@@ -41,11 +41,10 @@ const TaskCard = ({ task, onDelete, onDragStart, onDragEnd, isDragging }) => {
       <p className="task-title">
         {task.title}
       </p>
-
     </div>
   );
 };
-
+//after completing
 const LeafConfetti = () => {
   const [leaves, setLeaves] = useState([]);
 
@@ -97,6 +96,7 @@ const AddTaskModal = ({ isOpen, onClose, onAdd }) => {
       onClose();
     }
   };
+  
 
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
@@ -125,7 +125,6 @@ const AddTaskModal = ({ isOpen, onClose, onAdd }) => {
               autoFocus
             />
           </div>
-
 
           <div className="form-group">
             <label className="form-label">Priority</label>
@@ -169,6 +168,7 @@ const AddTaskModal = ({ isOpen, onClose, onAdd }) => {
   );
 };
 
+
 const Column = ({ title, icon, tasks, showAddButton, onDeleteTask, onAddTask, onDragOver, onDrop, onDragStart, onDragEnd, draggedTask }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -183,8 +183,9 @@ const Column = ({ title, icon, tasks, showAddButton, onDeleteTask, onAddTask, on
       className="column"
     >
       
-      <div className="column-header">
 
+
+      <div className="column-header">
         <div className="column-title">
           <span>{icon}</span>
           <h3>{title}</h3>
@@ -211,7 +212,6 @@ const Column = ({ title, icon, tasks, showAddButton, onDeleteTask, onAddTask, on
           </div>
         )}
       </div>
-
       
       {showAddButton && (
         <div className="add-task-btn">
@@ -243,13 +243,11 @@ function App() {
   const inProgressTasks = tasks.filter(task => task.status === 'inProgress');
   const completedTasks = tasks.filter(task => task.status === 'completed');
   
-
   const progress = tasks.length > 0 ? (completedTasks.length / tasks.length) * 100 : 0;
   const allComplete = tasks.length > 0 && completedTasks.length === tasks.length;
   const today = format(new Date(), 'EEEE, MMMM d');
 
   useEffect(() => {
-
     if (allComplete && tasks.length > 0) {
       setShowConfetti(true);
     } else {
@@ -312,9 +310,8 @@ function App() {
         <header className="header">
           <h1>HobbitHabbit</h1>
         </header>
-
-
         
+
         <div className="progress-section">
           <div className="progress-header">
             <div>
@@ -335,7 +332,6 @@ function App() {
           </div>
         </div>
 
-
         
         <div className="board">
           <Column 
@@ -351,43 +347,39 @@ function App() {
             onDragEnd={handleDragEnd}
             draggedTask={draggedTask}
           />
-
-          <Column
-          title="In Progress"
-          icon='p'
-          tasks={inProgressTasks}
-          showAddButton={false}
-          onDeleteTask={handleDeleteTask}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          draggedTask={draggedTask}
-        />
-
-        <Column
-          title="Completed"
-          icon="C"
-          tasks={completedTasks}
-          showAddButton={false}
-          onDeleteTask={handleDeleteTask}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          onDragEnd={handleDragEnd}
-          onDragStart={handleDragStart}
-          draggedTask={draggedTask}
-        />
-
-       </div>
+          <Column 
+            title="In Progress" 
+            icon="P"
+            tasks={inProgressTasks}
+            showAddButton={false}
+            onDeleteTask={handleDeleteTask}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            draggedTask={draggedTask}
+          />
+          <Column 
+            title="Completed" 
+            icon="C"
+            tasks={completedTasks}
+            showAddButton={false}
+            onDeleteTask={handleDeleteTask}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            draggedTask={draggedTask}
+          />
+        </div>
+        
+      </div>
     </div>
-  </div>
   );
 
 }
 
+
+
+
 export default App;
-
-
-
-
-
